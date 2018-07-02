@@ -19,6 +19,8 @@ urlpatterns = [
     url(r'^customer_distribute.html', views.customer_distribute),
     # 客户关怀信息目录
     url(r'^customer_care_list.html', views.customer_care_list),
+    url(r'^customer_care_edit.html', views.customer_care_edit),
+
     # 客户类型信息目录
     url(r'^customer_type_list.html', views.customer_type_list),
     # 客户状态信息目录

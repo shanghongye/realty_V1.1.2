@@ -106,11 +106,11 @@ for(i=0;i<cs.length;i++){
 	<form action="http://localhost:8080/crm/servlet/CustomerConditionQueryServlet"  method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" background="http://localhost:8080/crm/resource/images/tab_05.gif">
+				<td height="30" background="/static/tab_05.gif">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="30">
-								<img src="http://localhost:8080/crm/resource/images/tab_03.gif" width="12"
+								<img src="/static/tab_03.gif" width="12"
 									height="30" />
 							</td>
 							<td>
@@ -132,7 +132,7 @@ for(i=0;i<cs.length;i++){
 								</table>
 							</td>
 							<td width="16">
-								<img src="http://localhost:8080/crm/resource/images/tab_07.gif" width="16"
+								<img src="/static/tab_07.gif" width="16"
 									height="30" />
 							</td>
 						</tr>
@@ -146,7 +146,7 @@ for(i=0;i<cs.length;i++){
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="8"
-								background="http://localhost:8080/crm/resource/images/tab_12.gif">
+								background="/static/tab_12.gif">
 								&nbsp;
 							</td>
 							<td>
@@ -155,26 +155,28 @@ for(i=0;i<cs.length;i++){
 									onmouseout="changeback()">
 									<tr>
 										<td width="5%"
-											background="http://localhost:8080/crm/resource/images/bg2.gif"
+											background="/static/bg2.gif"
 											bgcolor="#FFFFFF" style="width: 5%; height: 22px;">
 											<div align="center">
 												<span class="STYLE1">序号</span>
 											</div>
 										</td>
-										<td background="http://localhost:8080/crm/resource/images/bg2.gif"
+										<td background="/static/bg2.gif"
 											bgcolor="#FFFFFF" style="width: 30%; height: 22px;">
 											<div align="center">
 												<span class="STYLE1">客户状态</span>
 											</div>
 										</td>
-										<td background="http://localhost:8080/crm/resource/images/bg2.gif"
+
+
+										<td background="/static/bg2.gif"
 											bgcolor="#FFFFFF" style="width: 55%; height: 22px;">
 											<div align="center">
 												<span class="STYLE1">状态描述</span>
 											</div>
 										</td>
 										<td      width="10%"
-											background="http://localhost:8080/crm/resource/images/bg2.gif"
+											background="/static/bg2.gif"
 											bgcolor="#FFFFFF" class="STYLE1"
 											style="width: 10%; height: 22px;">
 											<div align="center">
@@ -184,27 +186,31 @@ for(i=0;i<cs.length;i++){
 									</tr>
 
 
+                                {% for cust_stat in cust_stat_list %}
+
 									<tr>
 										<td height="20" bgcolor="#FFFFFF" style="width: 3%">
 											<div align="center" class="STYLE1">
 												<div align="center">
-													1
+													{{ cust_stat.status_id }}
 												</div>
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF" style="width: 4%">
 											<div align="center">
-												<span class="STYLE1">潜在客户</span>
-											</div>
+                                                   <span class="STYLE1">{{ cust_stat.status_name}}</span>
+
+
 										</td>
+
 										<td height="20" bgcolor="#FFFFFF" style="width: 32%">
 											<div align="center">
-												<span class="STYLE1">可能成为客户的人</span>
+												<span class="STYLE1">{{ cust_stat.status_explain }}</span>
 											</div>
 										</td>
 										<td      height="20" bgcolor="#FFFFFF" style="width: 9%">
 											<div align="center">
-												<span class="STYLE4"><img src="http://localhost:8080/crm/resource/images/del.gif"
+												<span class="STYLE4"><img src="/static/del.gif"
 														width="16" height="16" /><a
 													href="http://localhost:8080/crm/servlet/CustomerConditionDeleteServlet?conditionId=1">删除</a>
 												</span>
@@ -212,68 +218,13 @@ for(i=0;i<cs.length;i++){
 										</td>
 									</tr>
 
+                                      {% endfor %}
 
-									<tr>
-										<td height="20" bgcolor="#FFFFFF" style="width: 3%">
-											<div align="center" class="STYLE1">
-												<div align="center">
-													2
-												</div>
-											</div>
-										</td>
-										<td height="20" bgcolor="#FFFFFF" style="width: 4%">
-											<div align="center">
-												<span class="STYLE1">意向客户</span>
-											</div>
-										</td>
-										<td height="20" bgcolor="#FFFFFF" style="width: 32%">
-											<div align="center">
-												<span class="STYLE1">有意愿车成为客户的人</span>
-											</div>
-										</td>
-										<td      height="20" bgcolor="#FFFFFF" style="width: 9%">
-											<div align="center">
-												<span class="STYLE4"><img src="http://localhost:8080/crm/resource/images/del.gif"
-														width="16" height="16" /><a
-													href="http://localhost:8080/crm/servlet/CustomerConditionDeleteServlet?conditionId=2">删除</a>
-												</span>
-											</div>
-										</td>
-									</tr>
-
-
-									<tr>
-										<td height="20" bgcolor="#FFFFFF" style="width: 3%">
-											<div align="center" class="STYLE1">
-												<div align="center">
-													3
-												</div>
-											</div>
-										</td>
-										<td height="20" bgcolor="#FFFFFF" style="width: 4%">
-											<div align="center">
-												<span class="STYLE1">交易客户</span>
-											</div>
-										</td>
-										<td height="20" bgcolor="#FFFFFF" style="width: 32%">
-											<div align="center">
-												<span class="STYLE1">正在交易的客户</span>
-											</div>
-										</td>
-										<td      height="20" bgcolor="#FFFFFF" style="width: 9%">
-											<div align="center">
-												<span class="STYLE4"><img src="http://localhost:8080/crm/resource/images/del.gif"
-														width="16" height="16" /><a
-													href="http://localhost:8080/crm/servlet/CustomerConditionDeleteServlet?conditionId=3">删除</a>
-												</span>
-											</div>
-										</td>
-									</tr>
 
 								</table>
 							</td>
 							<td width="8"
-								background="http://localhost:8080/crm/resource/images/tab_15.gif">
+								background="/static/tab_15.gif">
 								&nbsp;
 							</td>
 						</tr>
@@ -282,11 +233,11 @@ for(i=0;i<cs.length;i++){
 			</tr>
 
 			<tr>
-				<td height="35" background="http://localhost:8080/crm/resource/images/tab_19.gif">
+				<td height="35" background="/static/tab_19.gif">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="12" height="35">
-								<img src="http://localhost:8080/crm/resource/images/tab_18.gif" width="12"
+								<img src="/static/tab_18.gif" width="12"
 									height="35" />
 							</td>
 							<td>
@@ -300,19 +251,19 @@ for(i=0;i<cs.length;i++){
 												cellspacing="0">
 												<tr>
 													<td width="40">
-														<img src="http://localhost:8080/crm/resource/images/first.gif"
+														<img src="/static/first.gif"
 															width="37" height="15" />
 													</td>
 													<td width="45">
-														<img src="http://localhost:8080/crm/resource/images/back.gif"
+														<img src="/static/back.gif"
 															width="43" height="15" />
 													</td>
 													<td width="45">
-														<img src="http://localhost:8080/crm/resource/images/next.gif"
+														<img src="/static/next.gif"
 															width="43" height="15" />
 													</td>
 													<td width="40">
-														<img src="http://localhost:8080/crm/resource/images/last.gif"
+														<img src="/static/last.gif"
 															width="37" height="15" />
 													</td>
 													<td width="100">
@@ -324,7 +275,7 @@ for(i=0;i<cs.length;i++){
 														</div>
 													</td>
 													<td width="40">
-														<img src="http://localhost:8080/crm/resource/images/go.gif" width="37"
+														<img src="/static/go.gif" width="37"
 															height="15" />
 													</td>
 												</tr>
@@ -334,7 +285,7 @@ for(i=0;i<cs.length;i++){
 								</table>
 							</td>
 							<td width="16">
-								<img src="http://localhost:8080/crm/resource/images/tab_20.gif" width="16"
+								<img src="/static/tab_20.gif" width="16"
 									height="35" />
 							</td>
 						</tr>

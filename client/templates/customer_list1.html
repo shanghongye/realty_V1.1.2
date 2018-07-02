@@ -131,39 +131,47 @@ for(i=0;i<cs.length;i++){
         <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"  onmouseout="changeback()">
 
           <tr>
-            <td width="5%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">姓名</span></div></td>
-            <td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">状态</span></div></td>
-            <td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">来源</span></div></td>
-            <td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">所属员工</span></div></td>
-			<td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">类型</span></div></td>
+                <td width="5%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">姓名</span></div></td>
 			<td width="4%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">性别</span></div></td>
 			<td width="5%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">手机</span></div></td>
 			<td width="5%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">QQ</span></div></td>
 			<td width="6%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">邮箱</span></div></td>
+
+            <td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">状态</span></div></td>
+            <td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">来源</span></div></td>
+            <td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">所属员工</span></div></td>
+			<td width="7%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">类型</span></div></td>
 			<td width="6%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">职位</span></div></td>
 			<td width="16%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">公司</span></div></td>
 			<td width="10%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">备注</span></div></td>
 			<td width="15%" height="22" background="/static/bg2.gif" bgcolor="#FFFFFF" class="STYLE1"><div align="center">基本操作</div></td>
 </tr>
 
- <tr>
-            <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">詹姆斯</span></div></td>
-            <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">未交易</span></div></td>
+            {% for cust in cust_list %}
+                <tr>
+
+            <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">{{ cust.customer_name }}</span></div></td>
+            <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">{{ cust.customer_sex }}</span></div></td>
+            <td height="20" bgcolor="#FFFFFF"style="width: 5%"><div align="center"><span class="STYLE1">{{ cust.customer_mobile }}</span></div></td>
+			<td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">{{ cust.customer_qq }}</span></div></td>
+            <td height="20" bgcolor="#FFFFFF"style="width: 5%"><div align="center"><span class="STYLE1">{{ cust.customer_email }}</span></div></td>
+             <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">{{cust.status_id}}</span></div></td>
+
+
+
             <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1">自己上門</span></div></td>
             <td height="20" bgcolor="#FFFFFF"style="width: 6%"><div align="center"><span class="STYLE1">李威222</span></div></td>
-			<td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td>
             <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td>
-            <td height="20" bgcolor="#FFFFFF"style="width: 5%"><div align="center"><span class="STYLE1"><a href="servlet/FetionSendServlet1?id=<%=customerInfo.getCustomerId() %>">13522912546</a></span></div></td>
-			<td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td>
-            <td height="20" bgcolor="#FFFFFF"style="width: 5%"><div align="center"><span class="STYLE1"></span></div></td>
-            <td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td>
-			<td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td>
+			<td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td><td height="20" bgcolor="#FFFFFF"style="width: 3%"><div align="center"><span class="STYLE1"></span></div></td>
 			<td height="20" bgcolor="#FFFFFF"style="width: 8%"><div align="center"><span class="STYLE1">大生意</span></div></td>
             <td height="20" bgcolor="#FFFFFF"style="width: 15%"><div align="center"><span class="STYLE4"><img src="/static/edt.gif" width="16" height="16" />
             <a href="customer_edit.html">编辑</a>&nbsp; <img src="/static/edt.gif" width="16" height="16" />
             <a href="customer_detail.html">详情</a>&nbsp; <img src="/static/del.gif" width="16" height="16" />
             <a href="javascript:void(0)">删除</a></span></div></td>
           </tr>
+
+                {% endfor %}
+
 
 		  <tr>
 				<td height="20" bgcolor="#FFFFFF" colspan="22"  align="center">
