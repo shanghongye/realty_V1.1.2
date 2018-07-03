@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from home.models import *
 
 # Create your views here.
 def emp_list(request):
@@ -21,4 +22,6 @@ def dept_list(request):
 
 
 def notice_list(request):
-    return render(request, 'notice_list.html')
+
+    noti = NoticeInfo.objects.all()
+    return render(request, 'notice_list.html',{'noti':noti})

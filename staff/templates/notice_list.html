@@ -104,7 +104,7 @@ for(i=0;i<cs.length;i++){
 
 	<body>
 
-	<form action="http://localhost:8080/crm/servlet/NoticeQueryServlet"  method="post">
+	<form action=""  method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30" background="/static/tab_05.gif">
@@ -121,7 +121,9 @@ for(i=0;i<cs.length;i++){
 											&nbsp;&nbsp;请输入查询内容：
 											<input type="text" name="noticeInput" style="width: 290px" />
 										</td>
-										<td class="STYLE4">&nbsp;&nbsp;请选择查询方式：<select name="queryType" style="width: 100px">
+										<td class="STYLE4">&nbsp;&nbsp;
+                                                请选择查询方式：
+                                                <select name="queryType" style="width: 100px">
       											<option value="1">公告主题</option>
      				 							<option value="2">公告内容</option>
    				 							</select>
@@ -159,6 +161,7 @@ for(i=0;i<cs.length;i++){
 								<table width="100%" border="0" cellpadding="0" cellspacing="1"
 									bgcolor="b5d6e6" onmouseover="changeto()"
 									onmouseout="changeback()">
+
 									<tr>
 										<td width="5%"
 											background="/static/bg2.gif"
@@ -208,37 +211,38 @@ for(i=0;i<cs.length;i++){
 									</tr>
 
 
-									<tr>
+									{% for n in noti %}
+									    <tr>
 										<td height="20" bgcolor="#FFFFFF" style="width: 5%">
 											<div align="center" class="STYLE1">
 												<div align="center">
-													1
+													{{ forloop.counter }}
 												</div>
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF" style="width: 5%">
 											<div align="center">
-												<span class="STYLE1">孙悟空</span>
+												<span class="STYLE1">{{ n.user.user_name }}</span>
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF" style="width: 8%">
 											<div align="center">
-												<span class="STYLE1">最近要开会</span>
+												<span class="STYLE1">{{ n.notice_item }}</span>
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF" style="width: 40%">
 											<div align="center">
-												<span class="STYLE1">记得带钱</span>
+												<span class="STYLE1">{{ n.notice_content }}</span>
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF" style="width: 10%">
 											<div align="center">
-												<span class="STYLE1">2013-05-23 23:22:12.0</span>
+												<span class="STYLE1">{{ n.notice_item }}</span>
 											</div>
 										</td>
 										<td height="20" bgcolor="#FFFFFF" style="width: 10%">
 											<div align="center">
-												<span class="STYLE1">2013-05-30 23:22:29.0</span>
+												<span class="STYLE1">{{ n.notice_endtime }}</span>
 											</div>
 										</td>
 										<td     height="20" bgcolor="#FFFFFF" style="width: 10%">
@@ -250,6 +254,8 @@ for(i=0;i<cs.length;i++){
 											</div>
 										</td>
 									</tr>
+									{% endfor %}
+
 
 								</table>
 							</td>
@@ -281,33 +287,34 @@ for(i=0;i<cs.length;i++){
 												cellspacing="0">
 												<tr>
 													<td width="40">
-														<img src="/static/first.gif"
-															width="37" height="15" />
+                                                        <a href="/main/center.html"><img src="/static/first.gif"
+															width="37" height="15" /></a>
 													</td>
 													<td width="45">
-														<img src="/static/back.gif"
-															width="43" height="15" />
+                                                        <a href="/main/dept_list.html"> <img src="/static/back.gif"
+															width="43" height="15" /></a>
+
 													</td>
 													<td width="45">
-														<img src="/static/next.gif"
-															width="43" height="15" />
+                                                        <a href="/main/emp_add.html"><img src="/static/next.gif"
+															width="43" height="15" /></a>
 													</td>
 													<td width="40">
-														<img src="/static/last.gif"
-															width="37" height="15" />
+                                                        <a href="/main/role_add.html"><img src="/static/last.gif"
+															width="37" height="15" /></a>
 													</td>
-													<td width="100">
-														<div align="center">
-															<span class="STYLE1">转到第 <input name="textfield"
-																	type="text" size="4"
-																	style="height: 12px; width: 20px; border: 1px solid #999999;" />
-																页 </span>
-														</div>
-													</td>
-													<td width="40">
-														<img src="/static/go.gif" width="37"
-															height="15" />
-													</td>
+{#													<td width="100">#}
+{#														<div align="center">#}
+{#															<span class="STYLE1">转到第 <input name="textfield"#}
+{#																	type="text" size="4"#}
+{#																	style="height: 12px; width: 20px; border: 1px solid #999999;" />#}
+{#																页 </span>#}
+{#														</div>#}
+{#													</td>#}
+{#													<td width="40">#}
+{#														<img src="/static/go.gif" width="37"#}
+{#															height="15" />#}
+{#													</td>#}
 												</tr>
 											</table>
 										</td>
